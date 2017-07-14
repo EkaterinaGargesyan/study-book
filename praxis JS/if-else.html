@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var input = +prompt("Give your score, plz");
+    var result;
+
+    if (isNaN(input)) {
+        alert("only numbers");
+    } else {
+        if (input >=95 && input <=100) {
+            resulr = "A";
+        }
+        if (input >=85 && input <=94) {
+            result = "B";
+        }
+        if (input >=75 && input <=84) {
+            resulr = "C";
+        }
+        if (input >=65 && input <=74) {
+            result = "D";
+        }
+        if (input >=60 && input <=64) {
+            resulr = "E";
+        }
+        if (input >=0 && input <=59) {
+            result = "F";
+        }
+        alert("your mark is: " + result);
+
+    }
+</script>
+</body>
+</html>

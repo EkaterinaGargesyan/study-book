@@ -1,0 +1,19 @@
+Вместо getElementsByTagName или 
+getElementsByClassName используем 
+querySelector и querySelectorAll
+Для получения элемента по классу будет 
+querySelector(.yourClassName)
+
+
+Вместо записи при создании элемента в дом
+
+var succeedDialog = document.createElement("p");
+var succedDialogMassage = document.createTextNode("Succeded!");
+succeedDialog.appendChild(succedDialogMassage);
+
+Можно применить свойство textContent будет:
+var succeedDialog = document.createElement("p");
+succeedDialog.textContent = "Succeded!";
+
+textContent нужно применять и при чтении текста 
+вместо innerHTML

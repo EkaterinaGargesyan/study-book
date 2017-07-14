@@ -1,0 +1,30 @@
+<script src="require.js"></script>
+
+<script>
+    require([
+        "./modules/hello_world",
+        "./modules/lodash_usage",
+        "./modules/welcome",
+        "./modules/date_value"
+    ], function (a, b, c, date) {
+        console.log("Run application!");
+
+        c.welcome("Kate");
+        console.log(date);
+    });
+</script>
+
+<script>
+    function loadJS(path) {
+        var script = document.createElement("script");
+        script.src = path;
+
+        var head = document.querySelector("head");
+
+        window.onload = function () {
+            head.appendChild(script);
+        }
+    }
+
+    loadJS("https://code.jquery.com/jquery-3.2.1.min.js");
+</script>

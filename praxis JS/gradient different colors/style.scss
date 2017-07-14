@@ -1,0 +1,16 @@
+$count: 6;
+$color1: rgb(127, 255, 212);
+$color2: rgb(255, 69, 0);
+
+div {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+@for $i from 1 through $count {
+
+  div:nth-child(#{$i}) {
+    background-color: mix($color1, $color2, 100 - 100 / $count * $i);
+  }
+}

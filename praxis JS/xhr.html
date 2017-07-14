@@ -1,0 +1,95 @@
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    body > div {
+        display: flex;
+        height: 100vh;
+    }
+    aside {
+        flex: 1;
+        overflow-y: scroll;
+        height: 100vh;
+    }
+    article {
+        flex: 3
+    }
+
+</style>
+
+<div>
+    <aside>
+        Menu
+        <ul></ul>
+    </aside>
+
+    <article class="preview">
+        <div class="user-name">
+            user name
+        </div>
+        <div class="post">
+            empty
+        </div>
+        <ul class="comments"></ul>
+    </article>
+</div>
+
+<script>
+    function query(url){
+        var query = new XMLHttpRequest();
+        query.open("GET", url);
+        query.send();
+        return query;
+    }
+    function updateMenu(data){
+        for(var index=0; index < data.length; index++){
+            var item = data[index];
+            document.querySelector("aside ul").innerHTML += `<li order="${index}">${item.title}</li>`
+        }
+    }
+
+    function updateComments(data) {
+        var markup = "";
+
+        for(var index=0; index < data.length; index++){
+            var item = data[index];
+            markup += `<li order="${index}">${item.body}</li>`
+        }
+        document.querySelector("ul.comments").innerHTML = markup;
+    }
+
+    function loadCommentsForPost(id) {
+        query(`https://jsonplaceholder.typicode.com/posts/${id}/comments`).addEventListener("load", function (event) {
+            var json  = JSON.parse(event.target.response);
+            updateComments(json);
+        })
+    }
+
+    function loadUserId(id) {
+        query(`https://jsonplaceholder.typicode.com/users/${id}`).addEventListener("load", function (event) {
+            var json  = JSON.parse(event.target.response);
+            document.querySelector("div.user-name").innerHTML = json.name;
+        })
+    }
+</script>
+
+<script>
+    var dataFromServer = [];
+
+    document.querySelector("aside ul").addEventListener("click", function(event){
+        var li = event.target;
+        var order = li.getAttribute("order");
+
+        var post = dataFromServer[+order];
+        loadUserId(post.userId);
+        loadCommentsForPost(post.id);
+        document.querySelector("div.post").innerHTML = post.body;
+    });
+
+    query("https://jsonplaceholder.typicode.com/posts").addEventListener("load", function(event){
+        var json  = JSON.parse(event.target.response);
+        dataFromServer = json;
+        updateMenu(json);
+    })
+</script>

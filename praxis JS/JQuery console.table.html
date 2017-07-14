@@ -1,0 +1,29 @@
+<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+
+<script>
+    $.ajax({
+        url: "https://jsonplaceholder.typicode.com/users",
+        success: function (data) {
+
+            function SetAuthor(id, name, lat, lng) {
+                this.id = id;
+                this.name = name;
+                this.lat = lat;
+                this.lng = lng;
+            }
+
+            var dataAuthors = [];
+            for(var i = 0; i < data.length; i++) {
+                var dataAuthor = new SetAuthor(
+                    data[i].id,
+                    data[i].username,
+                    data[i].address.geo.lat,
+                    data[i].address.geo.lng
+                );
+                dataAuthors.push(dataAuthor);
+            }
+
+            console.table(dataAuthors);
+        }
+    });
+</script>

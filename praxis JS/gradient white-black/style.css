@@ -1,0 +1,22 @@
+div {
+  width: 50px;
+  height: 50px;
+  float: left; }
+
+div:nth-child(1) {
+  background-color: white; }
+
+div:nth-child(2) {
+  background-color: #aaaaaa; }
+
+div:nth-child(3) {
+  background-color: gray; }
+
+div:nth-child(4) {
+  background-color: #555555; }
+
+div:nth-child(5) {
+  background-color: #2b2b2b; }
+
+div:nth-child(6) {
+  background-color: black; }

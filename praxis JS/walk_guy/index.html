@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+    div {
+        background-image: url(https://raw.githubusercontent.com/scilganon/BrainAcademy-examples/master/walk_guy/pixel.jpg);
+        height: 726px;
+        width: 350px;
+        animation-name: walk;
+        animation-duration: 3s;
+        animation-iteration-count: infinite     ;
+    }
+    @keyframes walk {
+        32.9% {
+            background-position-x: 0;
+        }
+        33% {
+            background-position-x: -350px;
+        }
+        99.9% {
+            background-position-x: -350px;
+        }
+        100% {
+            background-position-x: -700px;
+        }
+    }
+</style>
+</head>
+<body>
+<div></div>
+	
+</body>
+</html>
