@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        //default parameters
+        function greet(greeting = "Hi", name = "friend") {
+            console.log(`${greeting}, ${name}`)
+        }
+
+        greet("Hello", "Bill");   //Hello, Bill
+        greet("Hello");           //Hello, friend
+        greet(undefined, "Bill"); //Hi, Bill
+        greet();                  //Hi, friend
+
+
+        //rest parameters
+        function sum(...value) {
+            console.log(value instanceof Array); // true
+        }
+        sum(1, 2, 3);
+
+        function sum2(...value) {
+            console.log(value.reduce(function (prevValue, currentValue) {
+                return prevValue + currentValue;
+            }));
+        }
+        sum2(1, 2, 3);
+    </script>
+</body>
+</html>

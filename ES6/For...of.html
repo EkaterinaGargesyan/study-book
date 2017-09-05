@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        let browsers = ["Chrome", "Firefox", "Edge", "Safari", "Opera"];
+
+        for (let browser in browsers) {
+            console.log(browser); //0, 1, 2, 3, 4
+        }
+
+        for (let browser of browsers) {
+            console.log(browser); //Chrome, Firefox, Edge, Safari, Opera
+        }
+    </script>
+</body>
+</html>
