@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>heapsort</title>
+</head>
+<body>
+
+<script>
+    function  heapSort(arr) {
+        if (arr.length == 0){
+            return [];
+        }
+
+        var length = arr.length;
+        var i = Math.floor(length/2);
+        var j, k, t;
+
+        while (true){
+            if (i > 0){
+                t = arr[--i];
+            } else {
+                length--;
+                if (length == 0){
+                    return arr;
+                }
+                t = arr[length];
+                arr[length] = arr[0];
+            }
+
+            j = i;
+            k = j * 2 + 1;
+
+            while (k < length){
+                if ((k + 1) < length && arr[k + 1] > arr[k]){
+                    k++
+                }
+                if (arr[k] > t){
+                    arr[j] = arr[k];
+                    j = k;
+                    k = j * 2 + 1;
+                } else {
+                    break;
+                }
+            }
+            arr[j] = t;
+        }
+    }
+
+    console.log(heapSort([2,3,0,1,4]));
+</script>
+</body>
+</html>

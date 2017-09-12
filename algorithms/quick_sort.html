@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quick_sort</title>
+</head>
+<body>
+
+<script>
+    function quickSort(arr) {
+        if (arr.length == 0){
+            return [];
+        }
+        let a = [];
+        let b = [];
+        let p = arr[0];
+        for (let i = 1; i < arr.length; i++){
+            if (arr[i] < p){
+                a[a.length] = arr[i];
+            } else {
+                b[b.length] = arr[i];
+            }
+        }
+        return quickSort(a).concat(p, quickSort(b));
+    }
+
+    console.log(quickSort([5,0,3,1,4,2]));
+
+    //////////////////////////////////////////////////
+
+    function quickSort2(arr, left, right) {
+        var i = left;
+        var j = right;
+
+        var middle = arr[Math.round((left + right) / 2)];
+
+        do {
+            while (arr[i] < middle){
+                ++i;
+            }
+            while (arr[j] > middle){
+                --j;
+            }
+            if (i <= j){
+                var temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+
+                i++;
+                j--;
+            }
+        }
+        while (i < j);
+
+        if (left < j){
+            quickSort2(arr, left, j);
+        }
+        if (i < right){
+            quickSort2(arr, i, right);
+        }
+
+        return arr;
+    }
+
+    var arr = [5,0,3,1,4,2];
+    console.log(quickSort2(arr, 0, arr.length -1));
+</script>
+</body>
+</html>
