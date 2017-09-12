@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>binnary_search</title>
+</head>
+<body>
+
+<script>
+    function binnarySearch(x, arr) {   // x - search element; a - array when to search
+        var startIdx = 0;
+        var length = arr.length;
+        var avgIdx;
+
+        while (startIdx < length){
+            avgIdx = Math.floor((startIdx + length) / 2); //avgIdx - average index in arr
+            if (x <= arr[avgIdx]){
+                length = avgIdx;
+            } else {
+                startIdx = avgIdx + 1;
+            }
+        }
+
+        if (arr[startIdx] === x) {
+            return startIdx
+        } else {
+            return -1;
+        }
+    }
+
+    console.log(binnarySearch("c", ["a", "b", "c", "d", "e"])); //2
+</script>
+</body>
+</html>

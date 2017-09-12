@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>linear_search</title>
+</head>
+<body>
+
+<script>
+    function linearSearch(x, arr) {  // x - search element; a - array when to search
+        for (var i = 0; i < arr.length; i++){
+            if (arr[i] == x){
+                return i;
+            }
+        }
+        return "not found";
+    }
+
+    console.log(linearSearch("Roman", ["Tom", "Kate", "Roman", "Lina", "John"])); //2
+
+
+    //linear search with sentinel
+    function linearSearchWithSentinel(x, arr) {
+        var i = 0;
+        arr[arr.length] = x;
+
+        while (arr[i] != x){
+            i++;
+        }
+
+        if (i < arr.length){
+            return i;
+        } else {
+            return "not found";
+        }
+    }
+
+    console.log(linearSearchWithSentinel("Tom", ["Tom", "Kate", "Roman", "Lina", "John"])); //0
+    console.log(linearSearchWithSentinel("Anna", ["Tom", "Kate", "Roman", "Lina", "John"])); //5
+
+</script>
+</body>
+</html>
